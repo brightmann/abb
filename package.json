@@ -5,6 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "mdx": "node scripts/compile-mdx.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",

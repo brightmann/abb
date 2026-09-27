@@ -70,7 +70,7 @@ function page({ params: { slug } }: Props) {
 			</header>
 			<div className="grid items-start gap-8 bg-white py-12 dark:bg-slate-950 md:grid-cols-7">
 				<article className="prose col-span-5 dark:prose-invert">
-					<MDX code={post.body.code} />
+					<MDX slug={post.url} />
 				</article>
 				<AboutMe className="sticky top-8 col-span-2" />
 			</div>

@@ -1,6 +1,7 @@
 import React from "react"
 import Image from "next/image"
-import { useMDXComponent } from "next-contentlayer/hooks"
+
+import { mdxComponents } from "@/content/compiled"
 
 import { cn } from "@/lib/utils"
 
@@ -75,11 +76,14 @@ const components = {
 }
 
 interface MdxProps {
-	code: string
+	slug: string
 }
 
-export function MDX({ code }: MdxProps) {
-	const Component = useMDXComponent(code)
+export function MDX({ slug }: MdxProps) {
+	// Precompiled at build time (scripts/compile-mdx.mjs): no runtime eval,
+	// which Cloudflare Workers forbids.
+	const Component = mdxComponents[slug]
+	if (!Component) return null
 
 	return <Component components={components as any} />
 }
