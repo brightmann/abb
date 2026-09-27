@@ -91,7 +91,7 @@ export default async function og({ params: { slug } }: Props) {
 							{" "}
 						</span>
 						<span key="link" style={{ fontSize: "1rem" }}>
-							{process.env.NEXT_PUBLIC_URL}/{values.url}
+							{process.env.NEXT_PUBLIC_URL ?? "abb.luckypoem.workers.dev"}/{values.url}
 						</span>
 						<span
 							key="space-2"
